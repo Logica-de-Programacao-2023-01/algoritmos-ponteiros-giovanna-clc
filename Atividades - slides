@@ -1,0 +1,77 @@
+//Exercício 01//
+
+package main
+
+import "fmt"
+
+func swap(a *int, b *int) {
+	temp := *a
+	*a = *b
+	*b = temp
+}
+
+func main() {
+	x := 10
+	y := 20
+
+	fmt.Println("Antes da troca:")
+	fmt.Println("x:", x)
+	fmt.Println("y:", y)
+
+	swap(&x, &y)
+
+	fmt.Println("Depois da troca:")
+	fmt.Println("x:", x)
+	fmt.Println("y:", y)
+}
+
+//Exercício 02//
+
+package main
+
+import "fmt"
+
+func reverseBool(b *bool) {
+	*b = !(*b)
+}
+
+func main() {
+	value := true
+
+	fmt.Println("Antes da inversão:", value)
+
+	reverseBool(&value)
+
+	fmt.Println("Após a inversão:", value)
+}
+
+//Exercício 03//
+
+package main
+
+import "fmt"
+
+type Produto struct {
+	Nome     string
+	Preco    float64
+	Estoque  int
+}
+
+func atualizarPreco(p *Produto, novoPreco float64) {
+	p.Preco = novoPreco
+}
+
+func main() {
+	produto := Produto{
+		Nome:    "Camiseta",
+		Preco:   29.99,
+		Estoque: 10,
+	}
+
+	fmt.Println("Preço antes da atualização:", produto.Preco)
+
+	novoPreco := 39.99
+	atualizarPreco(&produto, novoPreco)
+
+	fmt.Println("Preço após a atualização:", produto.Preco)
+}
